@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: "DM Serif Display", serif;
+  --font-body: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0a0a0a;
+  --color-paper: #fafafa;
+  --color-mid: #8a8a8a;
+  --color-subtle: #e8e8e8;
+
+  --color-background: #fafafa;
+  --color-foreground: #0a0a0a;
+}
+
+:root {
+  /* Spacing */
+  --space-unit: 8px;
+  --space-xs: calc(var(--space-unit) * 0.5);
+  --space-sm: var(--space-unit);
+  --space-md: calc(var(--space-unit) * 1.5);
+  --space-lg: calc(var(--space-unit) * 2);
+  --space-xl: calc(var(--space-unit) * 3);
+  --space-2xl: calc(var(--space-unit) * 4);
+
+  /* Border Radius */
+  --radius-none: 0;
+
+  /* Transitions */
+  --transition-base: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Typography Scale (fluid, clamp-based) */
+  --font-xs: clamp(0.75rem, 2vw, 0.875rem);
+  --font-sm: clamp(0.875rem, 2.5vw, 1rem);
+  --font-base: clamp(1rem, 3vw, 1.125rem);
+  --font-lg: clamp(1.25rem, 4vw, 1.5rem);
+  --font-xl: clamp(1.5rem, 4vw, 2.5rem);
+  --font-display-size: clamp(2.5rem, 8vw, 7rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-base: 0s;
+    --transition-slow: 0s;
+  }
+}
+
+/* Base styles */
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+/* CSS Animations (replaces framer-motion for above-fold components) */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-word-reveal {
+  from {
+    opacity: 0.01;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobile-menu-enter {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.fade-in-down {
+  animation: fade-in-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-word {
+  opacity: 0.01;
+  animation: hero-word-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.mobile-menu-enter {
+  animation: mobile-menu-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-down,
+  .fade-in-up,
+  .hero-word,
+  .mobile-menu-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Grain overlay */
+.grain-overlay {
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 1rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-size: var(--font-sm);
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* Print stylesheet */
+@media print {
+  header,
+  .parallax-section,
+  .cta-button,
+  .custom-cursor,
+  .scroll-progress,
+  .grain-overlay,
+  .mobile-menu {
+    /* biome-ignore lint/complexity/noImportantStyles: required for print override */
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  h1 {
+    page-break-before: avoid;
+  }
+  a {
+    text-decoration: underline;
+  }
+  footer a {
+    display: none;
+  }
+}
