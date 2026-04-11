@@ -138,11 +138,13 @@ const logos: LogoShape[] = [
   },
   {
     // Finite State: crest polygon removed so x-height is driven by the
-    // wordmark text, not the tall hexagonal crest that dominated the bbox.
+    // wordmark text. Uses fixed height (not PINF) to match the other
+    // wordmarks' visible x-height — the text aspect is extreme (14.37:1)
+    // and equal-area sizing would make it too short.
     name: "Finite State",
     viewBox: "10.7 47.7 712.6 49.6",
-    width: 182,
-    height: 13,
+    width: 316,
+    height: 22,
     render: () => (
       <>
         <path d="M22.14,58.23V69.1H39v10H22.14V96.92H10.74V47.77H41.86V58.23Z" />
