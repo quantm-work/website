@@ -9,13 +9,13 @@ export function Hero() {
   return (
     <section
       aria-label="Hero"
-      className="min-h-screen flex items-center justify-center relative px-8"
+      className="min-h-screen -mt-16 flex items-center justify-center relative px-8"
     >
       <h1
-        className="font-display text-center max-w-7xl mx-auto hero-heading"
+        className="font-display text-center text-balance max-w-7xl mx-auto hero-heading"
         style={{
           fontSize: "var(--font-display-size)",
-          letterSpacing: "0.02em",
+          fontWeight: 500,
           lineHeight: 0.95,
           color: "var(--color-ink)",
         }}

@@ -28,8 +28,7 @@ export function CTASection() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Book a consultation"
-        className="inline-block bg-[var(--color-ink)] text-[var(--color-paper)] px-8 py-4 text-base uppercase min-w-[44px] min-h-[44px]"
-        style={{ letterSpacing: "0.1em" }}
+        className="inline-flex items-center justify-center bg-[var(--color-ink)] text-[var(--color-paper)] px-12 py-7 text-base font-medium min-w-[44px] min-h-[72px]"
         whileHover={{
           scale: 1.03,
           boxShadow: "0 4px 20px rgba(0,0,0,0.15)",

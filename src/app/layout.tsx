@@ -1,19 +1,12 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { DM_Serif_Display, Geist } from "next/font/google";
+import { Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-display",
-  display: "swap",
-  preload: false,
-});
-
 const geist = Geist({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
   preload: false,
@@ -102,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSerif.variable} ${geist.variable}`}>
+    <html lang="en" className={geist.variable}>
       <body className="antialiased">
         <a href="#main" className="skip-to-content">
           Skip to content

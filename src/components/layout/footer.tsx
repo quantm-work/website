@@ -23,31 +23,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="fade-in-up bg-[var(--color-paper)] px-8 py-8 text-[var(--color-ink)]">
+    <footer className="fade-in-up bg-[var(--color-paper)] px-8 py-8 font-semibold text-[var(--color-ink)]">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
         <span className="text-[length:var(--font-xs)]">
-          {`${COMPANY_NAME} © 2025`}
+          {`${COMPANY_NAME} © ${new Date().getFullYear()}`}
         </span>
 
-        <div className="group flex items-center gap-3 text-[length:var(--font-xs)]">
-          {links.map((link, i) => (
-            <span key={link.id} className="flex items-center gap-3">
-              {i > 0 && (
-                <span
-                  aria-hidden="true"
-                  className="text-[var(--color-mid)] transition-opacity duration-[var(--transition-base)] group-hover:opacity-40"
-                >
-                  &middot;
-                </span>
-              )}
-              <a
-                href={link.href}
-                aria-label={link.label}
-                className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[var(--color-ink)] transition-opacity duration-[var(--transition-base)] group-hover:opacity-40 hover:!opacity-100"
-              >
-                {link.label}
-              </a>
-            </span>
+        <div className="group flex items-center gap-6 text-[length:var(--font-xs)]">
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              aria-label={link.label}
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[var(--color-ink)] transition-opacity duration-[var(--transition-base)] group-hover:opacity-40 hover:!opacity-100"
+            >
+              {link.label}
+            </a>
           ))}
         </div>
       </div>

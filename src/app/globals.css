@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: "DM Serif Display", serif;
+  --font-display:
+    "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
 
   --color-ink: #0a0a0a;
@@ -51,6 +52,8 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
 }
