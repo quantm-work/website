@@ -5,7 +5,7 @@ import { CALENDAR_LINK, COMPANY_NAME, WHATSAPP_LINK } from "@/lib/config";
 import { getMailtoLink } from "@/lib/email";
 
 const buttonBase =
-  "inline-flex min-h-[44px] items-center justify-center px-6 py-2 font-sans font-medium text-sm transition-[background-color,color,border-color] duration-[var(--transition-base)]";
+  "inline-flex min-h-[44px] items-center justify-center px-6 py-2 font-sans font-semibold text-sm transition-[background-color,color,border-color] duration-[var(--transition-base)]";
 
 const primaryButtonClass = `${buttonBase} border border-[var(--color-ink)] bg-[var(--color-ink)] text-[var(--color-paper)] hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]`;
 
