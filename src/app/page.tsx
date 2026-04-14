@@ -33,8 +33,8 @@ export default function Home() {
       <Header />
       <main id="main">
         <Hero />
-        <LogoRow />
         <ParallaxStack />
+        <LogoRow />
         <CTASection />
       </main>
       <Footer />
