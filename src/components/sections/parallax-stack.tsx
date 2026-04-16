@@ -8,7 +8,7 @@ export function ParallaxStack() {
   return (
     <div className="mx-auto max-w-7xl">
       <motion.section
-        aria-label="Infrastructure at Scale"
+        aria-label="Market Data at Scale"
         className="relative aspect-video overflow-hidden bg-[var(--color-ink)]"
         variants={sectionReveal}
         initial="hidden"
@@ -44,13 +44,13 @@ export function ParallaxStack() {
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between px-8 pb-8 sm:px-12 sm:pb-10">
           <h2
-            className="font-display max-w-[60%] leading-[0.95]"
+            className="font-display max-w-[60%] leading-[0.95] bg-[var(--color-ink)] px-4 py-3"
             style={{
               fontSize: "var(--font-xl)",
               color: "var(--color-paper)",
             }}
           >
-            Infrastructure at Scale
+            Market Data at Scale
           </h2>
           <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-[color:rgb(250_250_250_/_0.55)] sm:block">
             Live · 500 ms tick
