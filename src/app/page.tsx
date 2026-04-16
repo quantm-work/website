@@ -16,6 +16,10 @@ const CTASection = dynamic(() =>
   import("@/components/sections/cta-section").then((m) => m.CTASection),
 );
 
+const TeamBios = dynamic(() =>
+  import("@/components/sections/team-bios").then((m) => m.TeamBios),
+);
+
 const CustomCursor = dynamic(() =>
   import("@/components/ui/custom-cursor").then((m) => m.CustomCursor),
 );
@@ -35,6 +39,7 @@ export default function Home() {
         <Hero />
         <ParallaxStack />
         <LogoRow />
+        <TeamBios />
         <CTASection />
       </main>
       <Footer />
