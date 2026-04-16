@@ -1,7 +1,9 @@
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Script from "next/script";
+import { AnalyticsScripts } from "@/components/consent/analytics-scripts";
+import { ConsentBanner } from "@/components/consent/consent-banner";
+import { ConsentProvider } from "@/components/consent/consent-provider";
+import { EU_UK_EEA_CH_CODES } from "@/lib/consent/region";
 import "./globals.css";
 
 const geist = Geist({
@@ -89,6 +91,16 @@ const faqJsonLd = {
   ],
 };
 
+const consentDefaultScript = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',${JSON.stringify(
+  {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    region: EU_UK_EEA_CH_CODES,
+  },
+)});`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -96,6 +108,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geist.variable}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />
+      </head>
       <body className="antialiased">
         <a href="#main" className="skip-to-content">
           Skip to content
@@ -111,19 +126,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
         {children}
-        <Analytics />
+        <ConsentProvider>
+          <AnalyticsScripts />
+          <ConsentBanner />
+        </ConsentProvider>
       </body>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="gtag-init" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`}
-          </Script>
-        </>
-      )}
     </html>
   );
 }

@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { PrivacyChoicesTrigger } from "@/components/consent/privacy-choices-trigger";
 import { COMPANY_NAME } from "@/lib/config";
 import { getMailtoLink, getSupportMailtoLink } from "@/lib/email";
 
@@ -40,6 +41,7 @@ export default function Footer() {
               {link.label}
             </a>
           ))}
+          <PrivacyChoicesTrigger />
         </div>
       </div>
     </footer>
