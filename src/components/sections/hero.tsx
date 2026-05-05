@@ -5,7 +5,8 @@ const PixelBlast = dynamic(() =>
   import("@/components/ui/pixel-blast").then((m) => m.PixelBlast),
 );
 
-const HEADLINE = "We build the future of finance";
+const HEADLINE =
+  "AI workflow automation, internal tools, and real-time data systems for growing companies";
 
 export function Hero() {
   const id = useId();
@@ -39,19 +40,19 @@ export function Hero() {
         />
       </div>
       <h1
-        className="font-display text-center text-balance max-w-7xl mx-auto hero-heading relative"
+        className="font-display text-center text-balance max-w-5xl mx-auto hero-heading relative tracking-tight"
         style={{
-          fontSize: "var(--font-display-size)",
+          fontSize: "clamp(1.75rem, 4.5vw, 3.75rem)",
           fontWeight: 500,
-          lineHeight: 0.95,
+          lineHeight: 1.1,
           color: "var(--color-ink)",
         }}
       >
         {words.map((word, i) => (
           <span
             key={`${id}-${word}-${i}`}
-            className="hero-word inline-block mr-[0.3em] last:mr-0"
-            style={{ animationDelay: `${i * 0.08}s` }}
+            className="hero-word inline-block mr-[0.2em] last:mr-0"
+            style={{ animationDelay: `${i * 0.04}s` }}
           >
             {word}
           </span>

@@ -8,6 +8,14 @@ const LogoRow = dynamic(() =>
   import("@/components/sections/logo-row").then((m) => m.LogoRow),
 );
 
+const Automations = dynamic(() =>
+  import("@/components/sections/automations").then((m) => m.Automations),
+);
+
+const SampleMCPs = dynamic(() =>
+  import("@/components/sections/sample-mcps").then((m) => m.SampleMCPs),
+);
+
 const WhyNow = dynamic(() =>
   import("@/components/sections/why-now").then((m) => m.WhyNow),
 );
@@ -60,11 +68,13 @@ export default function Home() {
       <main id="main">
         <Hero />
         <LogoRow />
-        <ParallaxStack />
         <WhyNow />
+        <ParallaxStack />
         <MoneyThatRunsItself />
         <ComplianceAtMachineSpeed />
         <EveryManagerChiefOfStaff />
+        <SampleMCPs />
+        <Automations />
         <TeamBios />
         <CTASection />
       </main>
