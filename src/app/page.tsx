@@ -60,8 +60,8 @@ export default function Home() {
       <main id="main">
         <Hero />
         <LogoRow />
-        <WhyNow />
         <ParallaxStack />
+        <WhyNow />
         <MoneyThatRunsItself />
         <ComplianceAtMachineSpeed />
         <EveryManagerChiefOfStaff />

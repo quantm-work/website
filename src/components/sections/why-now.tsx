@@ -34,15 +34,6 @@ export function WhyNow() {
           money, review risk, coach teams, and operate across your business in
           real time.
         </p>
-        <p
-          className="italic"
-          style={{
-            fontSize: "var(--font-sm)",
-            color: "var(--color-mid)",
-          }}
-        >
-          Strategy is useful. Shipping is rarer.
-        </p>
       </div>
     </motion.section>
   );
