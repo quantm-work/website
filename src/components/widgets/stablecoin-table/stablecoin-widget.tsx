@@ -20,12 +20,14 @@ export function StablecoinWidget() {
       aria-label="Stablecoin Monitor"
       className="mx-auto w-full max-w-[1040px] border border-ink/15 bg-paper font-[family-name:var(--font-body)]"
     >
-      <header className="flex items-center justify-between border-b border-ink/10 px-4 py-2.5">
+      <header className="flex items-center justify-between border-b border-ink/10 px-4 py-2.5 max-md:flex-wrap max-md:gap-y-1">
         <div className="flex items-baseline gap-3">
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">
             Stablecoin Monitor
           </span>
-          <span className="text-[11px] text-mid">Institutional Desk · USD</span>
+          <span className="hidden text-[11px] text-mid sm:inline">
+            Institutional Desk · USD
+          </span>
         </div>
 
         <div className="flex items-center gap-2 text-[11px] text-mid">
@@ -39,8 +41,12 @@ export function StablecoinWidget() {
           </span>
           <span aria-hidden="true">·</span>
           <WidgetClock />
-          <span aria-hidden="true">·</span>
-          <span className="uppercase tracking-[0.12em]">Agg</span>
+          <span aria-hidden="true" className="hidden sm:inline">
+            ·
+          </span>
+          <span className="hidden uppercase tracking-[0.12em] sm:inline">
+            Agg
+          </span>
         </div>
       </header>
 
@@ -48,9 +54,9 @@ export function StablecoinWidget() {
         <StablecoinTable />
       </div>
 
-      <footer className="flex items-center justify-between border-t border-ink/10 px-4 py-2 text-[10px] text-mid">
+      <footer className="flex items-center justify-between border-t border-ink/10 px-4 py-2 text-[10px] text-mid max-md:px-3">
         <span>12 assets · refresh 500 ms</span>
-        <span>src: mock · loop 10 s</span>
+        <span className="hidden sm:inline">src: mock · loop 10 s</span>
       </footer>
     </section>
   );

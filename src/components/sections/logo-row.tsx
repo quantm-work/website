@@ -147,9 +147,12 @@ export function LogoRow() {
   const id = useId();
 
   return (
-    <section aria-label="Client logos" className="pt-16 pb-32 px-8">
+    <section
+      aria-label="Client logos"
+      className="pt-12 pb-16 md:pt-16 md:pb-32 px-6 sm:px-8"
+    >
       <motion.div
-        className="mx-auto max-w-7xl flex flex-wrap items-center justify-center gap-8 md:gap-16"
+        className="mx-auto max-w-7xl flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-16"
         variants={logoRowFade}
         initial="hidden"
         whileInView="visible"
@@ -158,7 +161,7 @@ export function LogoRow() {
         {logos.map((logo) => (
           <div
             key={`${id}-${logo.name}`}
-            className="flex h-12 shrink-0 items-center justify-center"
+            className="flex h-10 md:h-12 items-center justify-center"
           >
             <svg
               role="img"
@@ -166,9 +169,10 @@ export function LogoRow() {
               height={logo.height}
               viewBox={logo.viewBox}
               fill="var(--color-ink)"
-              className="block opacity-100 hover:opacity-30"
+              className="block opacity-100 hover:opacity-30 max-w-full"
               style={{
                 transition: "var(--transition-base)",
+                height: "auto",
                 transform: logo.yOffset
                   ? `translateY(${logo.yOffset}px)`
                   : undefined,

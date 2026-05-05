@@ -49,6 +49,8 @@ type ColumnDef = {
   align: "left" | "right";
   flashable: boolean;
   widthClass: string;
+  /** When true the column is hidden below md (768px) */
+  mobileHidden?: boolean;
   render: (row: StablecoinSnapshot) => ReactNode;
   compare: (row: StablecoinSnapshot) => number | string | null;
 };
@@ -111,6 +113,7 @@ const columns: readonly ColumnDef[] = [
     align: "right",
     flashable: true,
     widthClass: "w-[92px]",
+    mobileHidden: true,
     render: (r) => formatCompactUsd(r.marketCapUsd),
     compare: (r) => r.marketCapUsd,
   },
@@ -120,6 +123,7 @@ const columns: readonly ColumnDef[] = [
     align: "right",
     flashable: true,
     widthClass: "w-[96px]",
+    mobileHidden: true,
     render: (r) => formatSignedCompactUsd(r.netFlow1hUsd),
     compare: (r) => r.netFlow1hUsd,
   },
@@ -129,6 +133,7 @@ const columns: readonly ColumnDef[] = [
     align: "right",
     flashable: true,
     widthClass: "w-[92px]",
+    mobileHidden: true,
     render: (r) => formatReserveRatio(r.reserveRatioPct),
     compare: (r) => r.reserveRatioPct,
   },
@@ -138,6 +143,7 @@ const columns: readonly ColumnDef[] = [
     align: "right",
     flashable: true,
     widthClass: "w-[72px]",
+    mobileHidden: true,
     render: (r) => formatAttestationAge(r.attestationAgeDays),
     compare: (r) => r.attestationAgeDays,
   },
@@ -147,6 +153,7 @@ const columns: readonly ColumnDef[] = [
     align: "right",
     flashable: true,
     widthClass: "w-[96px]",
+    mobileHidden: true,
     render: (r) => formatCompactUsd(r.depth2pctUsd),
     compare: (r) => r.depth2pctUsd,
   },
@@ -190,6 +197,7 @@ export function StablecoinTable({
                   col.key === "asset" ? "pl-4" : "",
                   col.key === "depth2pctUsd" ? "pr-4" : "",
                   col.widthClass,
+                  col.mobileHidden ? "hidden md:table-cell" : "",
                 ]
                   .filter(Boolean)
                   .join(" ")}
@@ -239,6 +247,7 @@ export function StablecoinTable({
                     col.align === "right" ? "text-right" : "text-left",
                     col.key === "asset" ? "pl-4" : "",
                     col.key === "depth2pctUsd" ? "pr-4" : "",
+                    col.mobileHidden ? "hidden md:table-cell" : "",
                     flashClass,
                   ]
                     .filter(Boolean)

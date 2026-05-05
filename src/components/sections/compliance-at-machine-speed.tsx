@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { StablecoinWidget } from "@/components/widgets/stablecoin-table/stablecoin-widget";
+import { AgentSwarmWidget } from "@/components/widgets/agent-swarm/agent-swarm-widget";
 import { sectionReveal } from "@/lib/animation";
 
-export function ParallaxStack() {
+export function ComplianceAtMachineSpeed() {
   return (
     <div className="mx-auto max-w-7xl mt-16 md:mt-24">
       <motion.section
-        aria-label="Market Data at Scale"
+        aria-label="Compliance at Machine Speed"
         className="relative aspect-video overflow-hidden bg-[var(--color-ink)]"
         variants={sectionReveal}
         initial="hidden"
@@ -37,7 +37,7 @@ export function ParallaxStack() {
               className="pointer-events-none absolute -inset-x-10 -bottom-14 h-24 bg-black/85 blur-3xl"
             />
             <div className="relative overflow-hidden shadow-[0_80px_180px_-20px_rgba(0,0,0,0.85),0_20px_60px_-15px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
-              <StablecoinWidget />
+              <AgentSwarmWidget />
             </div>
           </div>
         </div>
@@ -50,10 +50,10 @@ export function ParallaxStack() {
               color: "var(--color-paper)",
             }}
           >
-            Market Data at Scale
+            Compliance at Machine Speed
           </h2>
           <span className="hidden bg-[var(--color-ink)] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-[color:rgb(250_250_250_/_0.55)] sm:block">
-            Live · 500 ms tick
+            Agentic review trace
           </span>
         </div>
       </motion.section>

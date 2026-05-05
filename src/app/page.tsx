@@ -8,8 +8,30 @@ const LogoRow = dynamic(() =>
   import("@/components/sections/logo-row").then((m) => m.LogoRow),
 );
 
+const WhyNow = dynamic(() =>
+  import("@/components/sections/why-now").then((m) => m.WhyNow),
+);
+
 const ParallaxStack = dynamic(() =>
   import("@/components/sections/parallax-stack").then((m) => m.ParallaxStack),
+);
+
+const MoneyThatRunsItself = dynamic(() =>
+  import("@/components/sections/money-that-runs-itself").then(
+    (m) => m.MoneyThatRunsItself,
+  ),
+);
+
+const ComplianceAtMachineSpeed = dynamic(() =>
+  import("@/components/sections/compliance-at-machine-speed").then(
+    (m) => m.ComplianceAtMachineSpeed,
+  ),
+);
+
+const EveryManagerChiefOfStaff = dynamic(() =>
+  import("@/components/sections/every-manager-chief-of-staff").then(
+    (m) => m.EveryManagerChiefOfStaff,
+  ),
 );
 
 const CTASection = dynamic(() =>
@@ -37,8 +59,12 @@ export default function Home() {
       <Header />
       <main id="main">
         <Hero />
-        <ParallaxStack />
         <LogoRow />
+        <WhyNow />
+        <ParallaxStack />
+        <MoneyThatRunsItself />
+        <ComplianceAtMachineSpeed />
+        <EveryManagerChiefOfStaff />
         <TeamBios />
         <CTASection />
       </main>

@@ -52,24 +52,24 @@ export function TeamBios() {
   return (
     <motion.section
       aria-label="Team"
-      className="w-full py-24 px-8 max-w-7xl mx-auto"
+      className="w-full py-14 md:py-24 px-8 max-w-7xl mx-auto"
       variants={sectionReveal}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {team.map((member) => (
           <div
             key={member.name}
-            className="flex flex-col sm:flex-row items-start gap-6"
+            className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6"
           >
-            <div className="relative w-32 sm:w-40 aspect-square shrink-0 overflow-hidden">
+            <div className="relative w-36 sm:w-40 aspect-square shrink-0 overflow-hidden">
               <Image
                 src={member.photo}
                 alt={member.alt}
                 fill
-                sizes="160px"
+                sizes="(max-width: 639px) 144px, 160px"
                 priority={false}
                 className="object-cover"
               />
@@ -90,14 +90,14 @@ export function TeamBios() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${member.name} on LinkedIn`}
-                  className="inline-flex items-center justify-center text-[var(--color-mid)] hover:text-[var(--color-ink)]"
+                  className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] -m-2 text-[var(--color-mid)] hover:text-[var(--color-ink)]"
                   style={{ transition: "var(--transition-base)" }}
                 >
                   <LinkedInIcon />
                 </a>
               </div>
               <p
-                className="mt-2"
+                className="mt-1 md:mt-2"
                 style={{
                   fontSize: "var(--font-base)",
                   color: "var(--color-ink)",

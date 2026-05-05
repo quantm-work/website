@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section
       aria-label="Hero"
-      className="min-h-screen -mt-16 flex items-center justify-center relative px-8 overflow-hidden"
+      className="min-h-[80svh] md:min-h-screen -mt-16 flex items-center justify-center relative px-4 sm:px-8 overflow-hidden"
     >
       <div
         aria-hidden="true"
