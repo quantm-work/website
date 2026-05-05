@@ -15,7 +15,7 @@ export function WhyNow() {
     >
       <div className="max-w-3xl flex flex-col gap-6">
         <h2
-          className="font-display leading-[1.05]"
+          className="font-display leading-[1.05] text-balance"
           style={{
             fontSize: "var(--font-xl)",
             color: "var(--color-ink)",
