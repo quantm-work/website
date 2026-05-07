@@ -18,14 +18,14 @@ const team: TeamMember[] = [
   {
     name: "Brenda Manrique",
     alt: "Portrait of Brenda Manrique",
-    bio: "Senior software engineer at Moody's Analytics, with time at JPMorgan before that. NYU alum who turns messy problems into clear, user-centered products and ships them end to end. Based in New York.",
+    bio: "Co-founder of QuantM. Senior software engineer at Moody's Analytics, with time at JPMorgan before that. NYU alum who turns messy problems into clear, user-centered products and ships them end to end. Based in New York.",
     photo: brendaPhoto,
     linkedin: "https://www.linkedin.com/in/brenda-manrique/",
   },
   {
     name: "Matt Wood",
     alt: "Portrait of Matt Wood",
-    bio: "Co-founder of QuantM, building the future of finance. Full-stack engineer and systems architect working at the intersection of AI, design, and product that holds up in production. Based in Austin.",
+    bio: "Co-founder of QuantM. Building the future of finance. Full-stack engineer and systems architect working at the intersection of AI, design, and product that holds up in production. Based in Austin.",
     photo: mattPhoto,
     linkedin: "https://www.linkedin.com/in/mattwoodco",
   },
