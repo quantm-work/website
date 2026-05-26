@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { CALENDAR_LINK, COMPANY_NAME, WHATSAPP_LINK } from "@/lib/config";
 import { getMailtoLink } from "@/lib/email";
@@ -12,6 +13,19 @@ const primaryButtonClass = `${buttonBase} border border-[var(--color-ink)] bg-[v
 const secondaryButtonClass = `${buttonBase} border border-[var(--color-ink)] bg-transparent text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]`;
 
 const whatsappButtonClass = `${buttonBase} min-w-[44px] border border-[var(--color-ink)] bg-transparent text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]`;
+
+const solutionLinks = [
+  {
+    section: "Automation Workflows",
+    links: [
+      {
+        href: "/demos/ar-workflow-agent",
+        label: "AR Workflow Agent",
+        description: "Invoice follow-up, approval drafts, and AR briefs.",
+      },
+    ],
+  },
+];
 
 function WhatsappIcon() {
   return (
@@ -71,8 +85,12 @@ function CtaButtons({ size = "default", onNavigate }: CtaButtonsProps) {
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    setSolutionsOpen(false);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -105,6 +123,49 @@ export default function Header() {
         </a>
 
         <div className="hidden items-center gap-3 md:flex">
+          <div className="relative">
+            <button
+              type="button"
+              aria-expanded={solutionsOpen}
+              aria-controls="solutions-menu"
+              onClick={() => setSolutionsOpen((prev) => !prev)}
+              className="inline-flex min-h-[44px] items-center justify-center border border-transparent px-4 py-2 font-sans text-sm font-semibold text-[var(--color-ink)] transition-colors duration-[var(--transition-base)] hover:border-[var(--color-ink)]"
+            >
+              Solutions
+            </button>
+
+            {solutionsOpen && (
+              <div
+                id="solutions-menu"
+                className="absolute right-0 top-full z-50 w-[320px] border border-[var(--color-ink)] bg-[var(--color-paper)] p-4 shadow-[12px_12px_0_var(--color-ink)]"
+              >
+                {solutionLinks.map((section) => (
+                  <div key={section.section}>
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-mid)]">
+                      {section.section}
+                    </p>
+                    <div className="space-y-2">
+                      {section.links.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setSolutionsOpen(false)}
+                          className="block border border-[var(--color-subtle)] p-3 text-[var(--color-ink)] transition-colors duration-[var(--transition-base)] hover:border-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]"
+                        >
+                          <span className="block text-sm font-semibold">
+                            {item.label}
+                          </span>
+                          <span className="mt-1 block text-xs leading-5 opacity-70">
+                            {item.description}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
           <CtaButtons />
         </div>
 
@@ -144,6 +205,30 @@ export default function Header() {
           role="dialog"
           aria-label="Mobile navigation menu"
         >
+          <div className="w-full max-w-sm px-8">
+            {solutionLinks.map((section) => (
+              <div key={section.section} className="mb-8">
+                <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-mid)]">
+                  {section.section}
+                </p>
+                {section.links.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    className="block border border-[var(--color-ink)] p-4 text-center text-[var(--color-ink)]"
+                  >
+                    <span className="block text-base font-semibold">
+                      {item.label}
+                    </span>
+                    <span className="mt-1 block text-sm leading-6 text-[var(--color-mid)]">
+                      {item.description}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
           <CtaButtons size="large" onNavigate={closeMenu} />
         </div>
       )}

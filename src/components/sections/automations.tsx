@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useId } from "react";
 import { sectionReveal } from "@/lib/animation";
 
@@ -175,15 +176,32 @@ export function Automations() {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      <h2
-        className="font-display leading-[1.02] text-balance max-w-4xl mb-16 md:mb-24"
-        style={{
-          fontSize: "var(--font-xl)",
-          color: "var(--color-ink)",
-        }}
-      >
-        Your competitors aren't hiring. Their software is.
-      </h2>
+      <div className="mb-16 flex flex-col gap-8 md:mb-24 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-mid)]">
+            Solutions
+          </p>
+          <h2
+            className="font-display leading-[1.02] text-balance max-w-4xl"
+            style={{
+              fontSize: "var(--font-xl)",
+              color: "var(--color-ink)",
+            }}
+          >
+            Automation Workflows
+          </h2>
+          <p className="mt-5 max-w-2xl text-sm leading-6 text-[var(--color-mid)]">
+            Finance workflows that plug into the tools teams already trust.
+          </p>
+        </div>
+
+        <Link
+          href="/demos/ar-workflow-agent"
+          className="inline-flex min-h-[44px] w-fit items-center justify-center border border-[var(--color-ink)] px-5 py-3 text-sm font-semibold text-[var(--color-ink)] transition-colors duration-[var(--transition-base)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]"
+        >
+          View AR Workflow Agent
+        </Link>
+      </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-x-6 gap-y-10 md:gap-y-12 items-center justify-items-center">
         {integrationLogos.map((logo) => (

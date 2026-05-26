@@ -217,6 +217,14 @@ body {
   animation: hero-word-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.pixelated-type {
+  font-family: "Courier New", "Nimbus Mono PS", ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: none;
+  text-rendering: geometricprecision;
+}
+
 .mobile-menu-enter {
   animation: mobile-menu-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
