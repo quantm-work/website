@@ -12,9 +12,9 @@ const Automations = dynamic(() =>
   import("@/components/sections/automations").then((m) => m.Automations),
 );
 
-const SampleMCPs = dynamic(() =>
-  import("@/components/sections/sample-mcps").then((m) => m.SampleMCPs),
-);
+// const SampleMCPs = dynamic(() =>
+//   import("@/components/sections/sample-mcps").then((m) => m.SampleMCPs),
+// );
 
 const WhyNow = dynamic(() =>
   import("@/components/sections/why-now").then((m) => m.WhyNow),
@@ -73,7 +73,7 @@ export default function Home() {
         <MoneyThatRunsItself />
         <ComplianceAtMachineSpeed />
         <EveryManagerChiefOfStaff />
-        <SampleMCPs />
+        {/* <SampleMCPs /> */}
         <Automations />
         <TeamBios />
         <CTASection />

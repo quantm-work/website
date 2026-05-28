@@ -26,18 +26,18 @@ export default function Footer() {
 
   return (
     <footer className="fade-in-up bg-[var(--color-paper)] px-8 py-8 font-semibold text-[var(--color-ink)]">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
+      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <span className="text-[length:var(--font-xs)]">
           {`${COMPANY_NAME} © ${new Date().getFullYear()}`}
         </span>
 
-        <div className="group flex items-center gap-6 text-[length:var(--font-xs)]">
+        <div className="flex items-center gap-6 text-[length:var(--font-xs)]">
           {links.map((link) => (
             <a
               key={link.id}
               href={link.href}
               aria-label={link.label}
-              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[var(--color-ink)] transition-opacity duration-[var(--transition-base)] group-hover:opacity-40 hover:!opacity-100"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[var(--color-ink)] transition-opacity duration-[var(--transition-base)] hover:opacity-40"
             >
               {link.label}
             </a>

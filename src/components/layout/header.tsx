@@ -38,6 +38,14 @@ function CtaButtons({ size = "default", onNavigate }: CtaButtonsProps) {
   return (
     <>
       <a
+        href="/blog"
+        aria-label="Read our blog"
+        onClick={onNavigate}
+        className={`${secondaryButtonClass} ${sizeClass}`}
+      >
+        Blog
+      </a>
+      <a
         href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
@@ -99,7 +107,8 @@ export default function Header() {
         <a
           href="/"
           aria-label={`${COMPANY_NAME} home`}
-          className="font-display text-4xl font-medium text-[var(--color-ink)]"
+          className="font-display text-3xl font-black tracking-tight text-[var(--color-ink)]"
+          style={{ WebkitTextStroke: "1px var(--color-ink)" }}
         >
           {COMPANY_NAME}
         </a>

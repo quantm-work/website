@@ -182,7 +182,7 @@ export function Automations() {
           color: "var(--color-ink)",
         }}
       >
-        Your competitors aren't hiring. Their software is.
+        Connects everything you already run.
       </h2>
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-x-6 gap-y-10 md:gap-y-12 items-center justify-items-center">

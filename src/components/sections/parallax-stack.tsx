@@ -6,7 +6,7 @@ import { sectionReveal } from "@/lib/animation";
 
 export function ParallaxStack() {
   return (
-    <div className="mx-auto max-w-7xl mt-16 md:mt-24">
+    <div className="mx-auto max-w-7xl px-8 mt-16 md:mt-24">
       <motion.section
         aria-label="Market Data at Scale"
         className="relative aspect-video overflow-hidden bg-[var(--color-ink)]"
@@ -42,7 +42,7 @@ export function ParallaxStack() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between px-8 pb-8 sm:px-12 sm:pb-10">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between pb-8 sm:pb-10">
           <h2
             className="font-display max-w-[60%] leading-[0.95] bg-[var(--color-ink)] px-4 py-3"
             style={{

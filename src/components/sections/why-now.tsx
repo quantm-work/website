@@ -21,7 +21,7 @@ export function WhyNow() {
             color: "var(--color-ink)",
           }}
         >
-          What your competitors will be piloting next quarter.
+          We build what your competitors will be piloting next quarter.
         </h2>
         <p
           style={{
