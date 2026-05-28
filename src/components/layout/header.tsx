@@ -30,21 +30,28 @@ function WhatsappIcon() {
 type CtaButtonsProps = {
   size?: "default" | "large";
   onNavigate?: () => void;
+  showBlog?: boolean;
 };
 
-function CtaButtons({ size = "default", onNavigate }: CtaButtonsProps) {
+function CtaButtons({
+  size = "default",
+  onNavigate,
+  showBlog = true,
+}: CtaButtonsProps) {
   const sizeClass = size === "large" ? "text-base px-8 py-3 min-h-[52px]" : "";
 
   return (
     <>
-      <a
-        href="/blog"
-        aria-label="Read our blog"
-        onClick={onNavigate}
-        className={`${secondaryButtonClass} ${sizeClass}`}
-      >
-        Blog
-      </a>
+      {showBlog && (
+        <a
+          href="/blog"
+          aria-label="Read our blog"
+          onClick={onNavigate}
+          className={`${secondaryButtonClass} ${sizeClass}`}
+        >
+          Blog
+        </a>
+      )}
       <a
         href={WHATSAPP_LINK}
         target="_blank"
@@ -77,7 +84,11 @@ function CtaButtons({ size = "default", onNavigate }: CtaButtonsProps) {
   );
 }
 
-export default function Header() {
+type HeaderProps = {
+  showBlog?: boolean;
+};
+
+export default function Header({ showBlog = true }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
@@ -114,7 +125,7 @@ export default function Header() {
         </a>
 
         <div className="hidden items-center gap-3 md:flex">
-          <CtaButtons />
+          <CtaButtons showBlog={showBlog} />
         </div>
 
         <button
@@ -153,7 +164,7 @@ export default function Header() {
           role="dialog"
           aria-label="Mobile navigation menu"
         >
-          <CtaButtons size="large" onNavigate={closeMenu} />
+          <CtaButtons size="large" onNavigate={closeMenu} showBlog={showBlog} />
         </div>
       )}
     </header>

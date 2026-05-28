@@ -9,11 +9,17 @@ type FooterLink = {
   href: string;
 };
 
-export default function Footer() {
+type FooterProps = {
+  showBlog?: boolean;
+};
+
+export default function Footer({ showBlog = true }: FooterProps) {
   const linkGroupId = useId();
 
   const links: FooterLink[] = [
-    { id: `${linkGroupId}-blog`, label: "Blog", href: "/blog" },
+    ...(showBlog
+      ? [{ id: `${linkGroupId}-blog`, label: "Blog", href: "/blog" }]
+      : []),
     { id: `${linkGroupId}-terms`, label: "Terms", href: "/terms" },
     { id: `${linkGroupId}-privacy`, label: "Privacy", href: "/privacy" },
     {

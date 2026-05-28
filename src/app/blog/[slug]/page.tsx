@@ -3,8 +3,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
+import { SiteFooter, SiteHeader } from "@/components/layout/site-chrome";
 import {
   getMediaUrl,
   getPostBySlug,
@@ -77,7 +76,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
-      <Header />
+      <SiteHeader />
       <main id="main" className="mx-auto max-w-3xl px-8 py-16">
         <article>
           <script
@@ -183,7 +182,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </section>
         ) : null}
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

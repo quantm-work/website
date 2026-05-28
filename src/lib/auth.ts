@@ -1,6 +1,19 @@
 import { betterAuth } from "better-auth";
 import { oAuthProxy } from "better-auth/plugins";
-import { getPool } from "@/lib/db";
+import { Pool } from "pg";
+import { getDatabaseUrl } from "@/lib/db";
+
+let authPool: Pool | undefined;
+
+function getAuthPool(): Pool {
+  if (!authPool) {
+    authPool = new Pool({ connectionString: getDatabaseUrl() });
+    authPool.on("connect", (client) => {
+      void client.query("SET search_path TO auth, public");
+    });
+  }
+  return authPool;
+}
 
 function getAuthSecret(): string {
   const secret =
@@ -43,7 +56,7 @@ export function getAuth() {
   return betterAuth({
     baseURL,
     secret: getAuthSecret(),
-    database: getPool(),
+    database: getAuthPool(),
     trustedOrigins: getTrustedOrigins(),
     plugins: [
       oAuthProxy({

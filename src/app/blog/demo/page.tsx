@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
+import { SiteFooter, SiteHeader } from "@/components/layout/site-chrome";
 import { getSiteUrl } from "@/lib/posts";
 
 const PATH = "/blog/demo";
@@ -159,7 +158,7 @@ export default function BlogMediaDemoPage() {
 
   return (
     <>
-      <Header />
+      <SiteHeader />
       <main id="main" className="mx-auto max-w-3xl px-8 py-16 space-y-20">
         <script
           type="application/ld+json"
@@ -271,7 +270,7 @@ export default function BlogMediaDemoPage() {
           </section>
         </article>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

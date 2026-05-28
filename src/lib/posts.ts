@@ -23,6 +23,19 @@ export const getPublishedPosts = cache(async (): Promise<Post[]> => {
   }
 });
 
+export const hasPublishedPosts = cache(async (): Promise<boolean> => {
+  try {
+    const payload = await getPayloadClient();
+    const result = await payload.count({
+      collection: "posts",
+      where: { _status: { equals: "published" } },
+    });
+    return result.totalDocs > 0;
+  } catch {
+    return false;
+  }
+});
+
 export const getPostBySlug = cache(
   async (slug: string): Promise<Post | null> => {
     try {

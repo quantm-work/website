@@ -1,5 +1,4 @@
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
+import { SiteFooter, SiteHeader } from "@/components/layout/site-chrome";
 
 export default function LegalLayout({
   children,
@@ -8,11 +7,11 @@ export default function LegalLayout({
 }>) {
   return (
     <>
-      <Header />
+      <SiteHeader />
       <main id="main" className="mx-auto max-w-7xl px-8 py-24">
         {children}
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

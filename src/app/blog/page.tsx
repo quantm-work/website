@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
+import { SiteFooter, SiteHeader } from "@/components/layout/site-chrome";
 import { getPublishedPosts, getSiteUrl } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Header />
+      <SiteHeader />
       <main id="main" className="mx-auto max-w-3xl px-8 py-16">
         <h1 className="mb-8 font-display text-5xl font-medium">Blog</h1>
         <div className="space-y-10">
@@ -45,7 +44,7 @@ export default async function BlogPage() {
           )}
         </div>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

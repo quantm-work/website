@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
+import { SiteFooter, SiteHeader } from "@/components/layout/site-chrome";
 import { Hero } from "@/components/sections/hero";
 import { GrainOverlay } from "@/components/ui/grain-overlay";
 
@@ -64,7 +63,7 @@ export default function Home() {
       <CustomCursor />
       <ScrollProgress />
       <GrainOverlay />
-      <Header />
+      <SiteHeader />
       <main id="main">
         <Hero />
         <LogoRow />
@@ -78,7 +77,7 @@ export default function Home() {
         <TeamBios />
         <CTASection />
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }
