@@ -13,6 +13,7 @@ export default function Footer() {
   const linkGroupId = useId();
 
   const links: FooterLink[] = [
+    { id: `${linkGroupId}-blog`, label: "Blog", href: "/blog" },
     { id: `${linkGroupId}-terms`, label: "Terms", href: "/terms" },
     { id: `${linkGroupId}-privacy`, label: "Privacy", href: "/privacy" },
     {

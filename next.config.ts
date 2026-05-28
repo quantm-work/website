@@ -1,4 +1,5 @@
 import createMDX from "@next/mdx";
+import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
 
 const securityHeaders = [
@@ -26,4 +27,4 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({});
 
-export default withMDX(nextConfig);
+export default withPayload(withMDX(nextConfig));

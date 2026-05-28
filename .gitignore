@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+.playwright-cli
 /.pnp
 .pnp.*
 .yarn/*
@@ -32,9 +33,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+.tmp*
 
 # typescript
 *.tsbuildinfo
@@ -43,3 +46,4 @@ next-env.d.ts
 
 # local agent state
 .claude/
+google-auth.json

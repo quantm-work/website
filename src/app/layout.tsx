@@ -18,7 +18,9 @@ export const metadata: Metadata = {
   title: "QuantM — We Build the Future of Finance",
   description:
     "QuantM builds AI-powered software for modern finance. Award-caliber execution, luxury design, zero shortcuts.",
-  metadataBase: new URL("https://quantm.work"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://quantm.work",
+  ),
   openGraph: {
     title: "QuantM — We Build the Future of Finance",
     description:

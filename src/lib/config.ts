@@ -4,4 +4,5 @@ export const WHATSAPP_LINK = "https://wa.me/15122990032?text=Hi%20QuantM%2C%20";
 export const CONTACT_EMAIL_ENCODED = "Y29udGFjdEBxdWFudG0ud29yaw==";
 export const SUPPORT_EMAIL_ENCODED = "c3VwcG9ydEBxdWFudG0ud29yaw==";
 export const COMPANY_NAME = "QuantM";
-export const SITE_URL = "https://quantm.work";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://quantm.work";
