@@ -19,6 +19,11 @@ const solutionLinks = [
     section: "Automation Workflows",
     links: [
       {
+        href: "/solutions/ai-automation-discovery",
+        label: "AI & Automation Discovery",
+        description: "Find the workflows your company should automate first.",
+      },
+      {
         href: "/demos/ar-workflow-agent",
         label: "AR Workflow Agent",
         description: "Invoice follow-up, approval drafts, and AR briefs.",
@@ -211,21 +216,23 @@ export default function Header() {
                 <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-mid)]">
                   {section.section}
                 </p>
-                {section.links.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMenu}
-                    className="block border border-[var(--color-ink)] p-4 text-center text-[var(--color-ink)]"
-                  >
-                    <span className="block text-base font-semibold">
-                      {item.label}
-                    </span>
-                    <span className="mt-1 block text-sm leading-6 text-[var(--color-mid)]">
-                      {item.description}
-                    </span>
-                  </Link>
-                ))}
+                <div className="space-y-3">
+                  {section.links.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="block border border-[var(--color-ink)] p-4 text-center text-[var(--color-ink)]"
+                    >
+                      <span className="block text-base font-semibold">
+                        {item.label}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-[var(--color-mid)]">
+                        {item.description}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
